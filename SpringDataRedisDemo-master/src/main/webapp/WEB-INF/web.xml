@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  
+  <!-- log4j监听器 -->
+    <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
+   <!-- spring监听器，通知spring可以实例化spring上下文 -->
+ <listener>
+   <listener-class>
+    org.springframework.web.context.ContextLoaderListener
+   </listener-class>
+</listener>
+   
+   <!-- spring上下文配置文件 -->
+   <context-param>
+   <!-- param-name必要是 -->
+     <param-name>contextConfigLocation</param-name>
+     <!-- 告诉spring我上下文放置的位置，默认放置在WEB-INF下面 -->
+     <param-value>classpath:spring-redis-sentinel.xml</param-value>
+   </context-param>
+   <!-- log4j的配置文件 -->
+   <context-param>
+  
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:log4j.properties</param-value>
+    
+  </context-param>
+      <!-- 默认情况下会去加载WEB-INF下面的 自定义的servlet名字-servlet.xml-->
+</web-app>
